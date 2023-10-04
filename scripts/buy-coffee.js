@@ -42,6 +42,9 @@ async function main() {
   console.log("== bought coffee ==");
   await printBalances(addresses);
 
+  await buyMeACoffee.connect(owner).changeOwner(tipper.address);
+  console.log("== changed owner to tipper ==");
+
   await buyMeACoffee.connect(owner).withdrawTips();
   console.log("== withdrew tips ==");
   await printBalances(addresses);

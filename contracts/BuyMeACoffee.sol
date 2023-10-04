@@ -27,6 +27,11 @@ contract BuyMeACoffee {
         owner = payable(msg.sender);
     }
 
+    function changeOwner(address newOwner) public {
+        require(msg.sender == owner, "Only owner can change owner");
+        owner = payable(newOwner);
+    }
+
     function buyCoffee(
         string memory _name,
         string memory _message
